@@ -176,6 +176,7 @@ tail(interval2.df,3)
 ```
 
 
+The following plot compares the activity for weekdays vs weekends.
 ```{r WeekdayActivityComparision,fig.width=6,fig.height=5,warning=FALSE}
 library(lattice)
 xyplot(steps ~ interval | timeperiod, data=interval2.df,

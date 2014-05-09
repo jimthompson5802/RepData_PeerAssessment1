@@ -424,6 +424,8 @@ names(interval2.df)[2:3] &lt;- c(&quot;timeperiod&quot;, &quot;steps&quot;)
 ## 576     2355    weekday 1.2667
 </code></pre>
 
+<p>The following plot compares the activity for weekdays vs weekends.</p>
+
 <pre><code class="r">library(lattice)
 xyplot(steps ~ interval | timeperiod, data = interval2.df, type = &quot;l&quot;, ylab = &quot;Number of steps&quot;, 
     layout = c(1, 2))

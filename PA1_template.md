@@ -286,6 +286,7 @@ tail(interval2.df, 3)
 
 
 
+The following plot compares the activity for weekdays vs weekends.
 
 ```r
 library(lattice)
