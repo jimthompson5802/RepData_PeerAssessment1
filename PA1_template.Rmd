@@ -2,11 +2,28 @@
 
 
 ## Loading and preprocessing the data
-Read the csv file into a dataframe and provide a summary of the data.
+Download data from the web and unzip raw data.  Read the csv file into a dataframe and provide a summary of the data.
 ```{r}
+###
+# Data retrieved from
+#  https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip
+#
+# The data is downloaded and unzipped into the current working direcory to create
+# activity file.
+###
+
+## Download the file
+file.url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip" 
+my.file <- "./repdata_data_activity.zip" 
+
+setInternet2(TRUE) 
+download.file(file.url,my.file) 
+unzip(my.file)
+
 raw.df <- read.csv(file="./activity.csv",
                colClasses=c("integer","character","integer"))
-cat("Data frame overview")
+cat("Data frame overview\n")
+cat("Data retrieved on",format(Sys.time(),"%m/%d/%Y %H:%M:%S"))
 str(raw.df)
 ```
 

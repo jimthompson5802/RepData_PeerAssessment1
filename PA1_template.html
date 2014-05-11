@@ -183,14 +183,33 @@ hljs.initHighlightingOnLoad();
 
 <h2>Loading and preprocessing the data</h2>
 
-<p>Read the csv file into a dataframe and provide a summary of the data.</p>
+<p>Download data from the web and unzip raw data.  Read the csv file into a dataframe and provide a summary of the data.</p>
 
-<pre><code class="r">raw.df &lt;- read.csv(file = &quot;./activity.csv&quot;, colClasses = c(&quot;integer&quot;, &quot;character&quot;, 
+<pre><code class="r">### Data retrieved from
+### https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip The
+### data is downloaded and unzipped into the current working direcory to
+### create activity file.
+
+## Download the file
+file.url &lt;- &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;
+my.file &lt;- &quot;./repdata_data_activity.zip&quot;
+
+setInternet2(TRUE)
+download.file(file.url, my.file)
+unzip(my.file)
+
+raw.df &lt;- read.csv(file = &quot;./activity.csv&quot;, colClasses = c(&quot;integer&quot;, &quot;character&quot;, 
     &quot;integer&quot;))
-cat(&quot;Data frame overview&quot;)
+cat(&quot;Data frame overview\n&quot;)
 </code></pre>
 
 <pre><code>## Data frame overview
+</code></pre>
+
+<pre><code class="r">cat(&quot;Data retrieved on&quot;, format(Sys.time(), &quot;%m/%d/%Y %H:%M:%S&quot;))
+</code></pre>
+
+<pre><code>## Data retrieved on 05/10/2014 21:32:04
 </code></pre>
 
 <pre><code class="r">str(raw.df)
